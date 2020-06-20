@@ -13,17 +13,15 @@ export default function App() {
   // fetch the url to get city,country,temp,description
 
   const getWeather = (e) => {
-    const city = e.target.city.value;
-    const country = e.target.country.value;
+    const cityName = e.target.city.value;
+    const countryName = e.target.country.value;
     e.preventDefault();
 
     // use By city name API
 
-    const weatherURL = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${api_key}`;
+    const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryName}&appid=${api_key}`;
 
-    fetch(weatherURL, {
-      headers: { 'Content-Type': 'application/json' },
-    })
+    fetch(weatherURL)
       .then((res) => res.json())
       .then((data) => {
         //console.log(data.main);
