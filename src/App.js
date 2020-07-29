@@ -9,6 +9,7 @@ export default function App() {
   const [description, setDescription] = useState('');
   const [error, setError] = useState('');
   const [wind, setWind] = useState('🌬');
+  const [feel, setFeel] = useState('🌸');
 
   const api_key = process.env.REACT_APP_SECRET_CODE;
   // fetch the url to get city,country,temp,description
@@ -31,6 +32,7 @@ export default function App() {
 
         // convert kelvin to celsius
         const tempInCel = data.main.temp - 273.15;
+        const feelInCel = data.main.feels_like - 273.15;
 
         // condition if input complete
 
@@ -40,7 +42,7 @@ export default function App() {
           setCountry(data.sys.country);
           setDescription(data.weather[0].description);
           setWind(`deg: ${data.wind.deg} ~ speed: ${data.wind.speed}`);
-
+          setFeel(feelInCel.toFixed(2) + '°C');
           setError('');
         } else {
           setError('Please complete your search...');
@@ -70,6 +72,7 @@ export default function App() {
         description={description}
         error={error}
         wind={wind}
+        feel={feel}
       />
       <div className="imageWeather">
         <h1>React-Weather-App</h1>
