@@ -52,7 +52,6 @@ export default function App() {
         alert('Please check your input City/Country');
       });
   };
-  console.log(wind);
 
   return (
     <div className="App">
