@@ -6,7 +6,11 @@ const Weather = (props) => {
       {/* Use  Short circuit evaluation instead table*/}
       {props.country && props.city && (
         <p>
-          Location: {props.city}, {props.country}
+          Location:{' '}
+          <span role="img" aria-label="flower emoji">
+            🍭
+          </span>
+          {props.city}, {props.country}
         </p>
       )}
       {props.temperature && <p>Temperature: {props.temperature}</p>}
